@@ -17,7 +17,7 @@
     <Style TargetType="Button" BasedOn="{StaticResource BaseStyle}" />
     <Style TargetType="Label" BasedOn="{StaticResource BaseStyle}" />
     <Style TargetType="TextBox" BasedOn="{StaticResource BaseStyle}" />
-    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" />
     <Style TargetType="ListView" BasedOn="{StaticResource BaseStyle}" />
 
 

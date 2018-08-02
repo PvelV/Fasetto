@@ -4,11 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fasetto"
+        xmlns:vm="clr-namespace:Fasetto.ViewModels"
         mc:Ignorable="d"
-        Title="Welcome to Fasetto" Height="450" Width="800" Icon="Images/Logo/logo-small.png">
+        d:DataContext="{d:DesignInstance Type=vm:WindowViewModel, IsDesignTimeCreatable=False}" 
+        x:Name="AppWindows"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Icon="Images/Logo/logo-small.png"
+        Title="Welcome to Fasetto" Height="600" Width="900">
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <!--Outer border with dropshadow-->
+                        <Border Padding="{Binding OuterMarginSizeThickness}">
+                            <!--MainWindow outline-->
+                            <Grid Background="Red">
+                                
+                                <!-- Main window with resizebale outline margin-->
+                                <Border CornerRadius="{Binding WindowCornerRadius}"/>
+                            </Grid>
+                        </Border>                       
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="42"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
     <Grid>
-        
-        
-        
+
+
+
     </Grid>
 </Window>
