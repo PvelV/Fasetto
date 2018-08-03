@@ -23,6 +23,9 @@ namespace Fasetto.ViewModels
 
         #region Public Properties
 
+        public double WindowMinWidth { get; set; } = 400;
+        public double WindowMinHeight { get; set; } = 400;
+
         public int ResizeBorder { get; set; } = 6;
 
         /// <summary>
@@ -74,9 +77,11 @@ namespace Fasetto.ViewModels
                 OnPropertyChanged(nameof(WindowCornerRadius));
             };
 
-            MaximizeCommand = new Command(() => mWindow.WindowState = WindowState.Maximized);
-            MinimizeCommand = new Command(()=> mWindow.WindowState ^= WindowState.Maximized);
+            MinimizeCommand = new Command(()=> mWindow.WindowState = WindowState.Minimized);
+            MaximizeCommand = new Command(() => mWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new Command(() => mWindow.Close());
+
+            var resizer = new WindowResizer.WindowResizer(mWindow);
         }
         public WindowViewModel()
         {

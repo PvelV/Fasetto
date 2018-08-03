@@ -13,6 +13,8 @@
         WindowStartupLocation="CenterScreen"
         Icon="Images/Logo/logo-small.png"
         Title="Welcome"
+        MinHeight="{Binding WindowMinHeight}"
+        MinWidth="{Binding WindowMinWidth}"
         Height="600" Width="900">
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -25,6 +27,11 @@
                          
                             <!--MainWindow outline-->
                             <Grid>
+                                
+                                <!-- Opacity mask for corners -->
+                                <Border x:Name="Container"  Background="{StaticResource BackgroundLightBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius}"/>
+
 
                                 <!-- window border and dropshadow-->
                                 <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
@@ -36,6 +43,10 @@
                                 
                                 <!-- Main window content -->
                                 <Grid>
+                                    <!-- corner clipping -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
                                     <Grid.RowDefinitions>
                                        <!--Title Bar-->
                                         <RowDefinition Height="{Binding TitleHeight, FallbackValue=42}"/>
@@ -70,15 +81,39 @@
                                         <!-- Window Buttons -->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                                             <!--Minimize-->
-                                            <Button Content="_" Command="{Binding MinimizeCommand}"/>
+                                            <Button Content="_" Style="{StaticResource WindowControlButton}" Command="{Binding MinimizeCommand}"/>
                                             <!--Maximize-->
-                                            <Button Content="[]" Command="{Binding MaximizeCommand}"/>
+                                            <Button Content="[]" Style="{StaticResource WindowControlButton}" Command="{Binding MaximizeCommand}"/>
                                             <!--Close-->
-                                            <Button Content="X" Command="{Binding CloseCommand}"  />
+                                            <Button Content="X" Style="{StaticResource WindowCloseButton}" Command="{Binding CloseCommand}"  />
                                         </StackPanel>
                                         
                                     </Grid>
+                                    
+                                    <!-- Drop Shadow -->
+                                    <Border Grid.Row="1" Height="6" BorderThickness="0,0.2,0,0">
+                                        <!-- underlining -->
+                                        <Border.BorderBrush>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="0.0"/>
+                                                <GradientStop Color="{StaticResource ForegroundMain}" Offset="0.5"/>
+                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Border.BorderBrush>
+                                        
+                                        <!-- dropshadow -->
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="{StaticResource BackgroundVeryLight}" Offset="0.0"/>
+                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
 
+                                    <!-- Page Content -->
+                                    <Border Grid.Row="2" Padding="6">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
                                 </Grid>
                                 
                             </Grid>
@@ -98,7 +133,6 @@
     </WindowChrome.WindowChrome>
     <Grid>
 
-
-
+        <Button/>
     </Grid>
 </Window>

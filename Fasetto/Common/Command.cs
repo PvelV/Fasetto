@@ -36,15 +36,15 @@ namespace Fasetto.Common
             }
         }
 
-        public Command(Action<object> _action, Predicate<object>_canExecute=null)
+        public Command(Action<object> _action, Predicate<object>_canExecute = null)
         {
             action = _action;
-            canExecute = _canExecute;
+            canExecute = _canExecute;// ?? new Predicate<object>((p) => { return true; });
         }
         public Command(Action _action, Predicate<object> _canExecute = null)
         {
             actionParameterless = _action;
-            canExecute = _canExecute;
+            canExecute = _canExecute;// ?? new Predicate<object>((p) => { return true; });
         }
     }
 }
