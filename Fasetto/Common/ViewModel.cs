@@ -19,9 +19,9 @@ namespace Fasetto.Common
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        //public void SetProperty<T>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
+        //public void SetProperty<object>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
         //{
-        //    if (!EqualityComparer<T>.Default.Equals(backingField, value))
+        //    if (!EqualityComparer<object>.Default.Equals(backingField, value))
         //    {
         //        OnPropertyChanged(propertyName);
         //    }

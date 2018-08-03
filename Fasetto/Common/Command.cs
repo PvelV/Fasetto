@@ -7,10 +7,11 @@ using System.Windows.Input;
 
 namespace Fasetto.Common
 {
-    public class Command<T> : ICommand
+    public class Command : ICommand
     {
-        private Action<T> action;
-        private Predicate<T> canExecute;
+        private Action actionParameterless;
+        private Action<object> action;
+        private Predicate<object> canExecute;
 
         public event EventHandler CanExecuteChanged
         {
@@ -20,17 +21,29 @@ namespace Fasetto.Common
 
         public bool CanExecute(object parameter)
         {
-            return canExecute == null ? true : canExecute((T)parameter);
+            return canExecute == null ? true : canExecute(parameter);
         }
 
         public void Execute(object parameter)
         {
-            action((T)parameter);
+            if (parameter == null)
+            {
+                actionParameterless();
+            }
+            else
+            {
+                action(parameter);
+            }
         }
 
-        public Command(Action<T> _action, Predicate<T>_canExecute=null)
+        public Command(Action<object> _action, Predicate<object>_canExecute=null)
         {
             action = _action;
+            canExecute = _canExecute;
+        }
+        public Command(Action _action, Predicate<object> _canExecute = null)
+        {
+            actionParameterless = _action;
             canExecute = _canExecute;
         }
     }
