@@ -1,4 +1,6 @@
 ﻿using Fasetto.Common;
+using Fasetto.Models;
+using Fasetto.Resizer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +25,12 @@ namespace Fasetto.ViewModels
 
         #region Public Properties
 
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+
         public double WindowMinWidth { get; set; } = 400;
         public double WindowMinHeight { get; set; } = 400;
-
         public int ResizeBorder { get; set; } = 6;
+
 
         /// <summary>
         /// Size of the resize border around the window, taking into account the outer margin
@@ -81,7 +85,7 @@ namespace Fasetto.ViewModels
             MaximizeCommand = new Command(() => mWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new Command(() => mWindow.Close());
 
-            var resizer = new WindowResizer.WindowResizer(mWindow);
+            var resizer = new WindowResizer(mWindow);
         }
         public WindowViewModel()
         {
