@@ -69,6 +69,7 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Styles\PasswordBoxProperties.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConvertor.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
