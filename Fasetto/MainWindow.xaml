@@ -16,7 +16,8 @@
         Title="Welcome"
         MinHeight="{Binding WindowMinHeight}"
         MinWidth="{Binding WindowMinWidth}"
-        Height="600" Width="900">
+        Height="600" Width="900" >
+    
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
             <Setter Property="Template">
@@ -24,7 +25,7 @@
                     <ControlTemplate TargetType="Window">
 
                         <!--Outer border with dropshadow-->
-                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}" >
 
                             <!--MainWindow outline-->
                             <Grid>
@@ -43,7 +44,7 @@
                                 </Border>
 
                                 <!-- Main window content -->
-                                <Grid>
+                                <Grid >
                                     <!-- corner clipping -->
                                     <Grid.OpacityMask>
                                         <VisualBrush Visual="{Binding ElementName=Container}"/>
@@ -101,8 +102,8 @@
 
 
                                     <!-- Page Content -->
-                                    <Border Grid.Row="1" Padding="5" >
-                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    <Border Grid.Row="1" Padding="5"   >
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
                                 </Grid>
 
@@ -121,7 +122,13 @@
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
-    <Grid>
-        <Frame x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={convertors:ApplicationPageValueConvertor}}" />
-    </Grid>
+    <Border Background="{StaticResource WordBlueBrush}">
+        <Grid >
+            <Grid.Background>
+                <ImageBrush ImageSource="/Fasetto;component/Images/Backgrounds/emoji-background.png" 
+                            TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" />
+            </Grid.Background>
+            <Frame x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={convertors:ApplicationPageValueConvertor}}" />
+        </Grid>
+    </Border>
 </Window>

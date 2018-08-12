@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Fasetto.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,11 +20,14 @@ namespace Fasetto.Pages
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : BasePage<LoginViewModel>, IHavePassword
     {
         public LoginPage()
         {
             InitializeComponent();
+            
         }
+
+        public SecureString SecurePassword => password.SecurePassword;
     }
 }
