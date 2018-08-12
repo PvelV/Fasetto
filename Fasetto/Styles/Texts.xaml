@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Fasetto.Styles">
+                    xmlns:local="clr-namespace:Fasetto.Styles"
+                    xmlns:attachedprops="clr-namespace:Fasetto.AttachedProperties">
+
 
     <Style TargetType="TextBlock" x:Key="HeaderText" BasedOn="{StaticResource BaseTextBlockStyle}">
         <Setter Property="Foreground" Value="{StaticResource ForegroundMainBrush}"/>
@@ -19,7 +21,7 @@
         <Setter Property="Margin" Value="0 5 0 5"/>
         <Setter Property="BorderBrush" Value="{StaticResource WordBlueBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="local:PasswordBoxProperties.MonitorPassword" Value="True"/>
+        <Setter Property="attachedprops:MonitorPasswordProperty.Value" Value="True"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -37,7 +39,7 @@
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Path=(local:PasswordBoxProperties.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                        <DataTrigger Binding="{Binding Path=(attachedprops:HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -86,7 +88,6 @@
         <Setter Property="Margin" Value="0 5 0 5"/>
         <Setter Property="BorderBrush" Value="{StaticResource WordBlueBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="local:PasswordBoxProperties.MonitorPassword" Value="True"/>
 
         <Setter Property="Template">
             <Setter.Value>
