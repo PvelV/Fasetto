@@ -15,6 +15,9 @@ namespace Fasetto.Word
 
         public Command LoginCommand { get; set; }
 
+        public bool LoginIsRunning { get; set; }
+
+
         public LoginViewModel()
         {
             LoginCommand = new Command(async (param) => await Login(param));
@@ -22,8 +25,11 @@ namespace Fasetto.Word
 
         private async Task Login(object param)
         {
-            await Task.Delay(5000);
-            var pass = (param as IHavePassword).SecurePassword.Unsecure();
+            await RunCommandAsync(() => LoginIsRunning, async () =>
+            {
+                await Task.Delay(5000);
+                var pass = (param as IHavePassword).SecurePassword.Unsecure();
+            });
         }
     }
 }

@@ -140,7 +140,7 @@
 
     <Style TargetType="{x:Type TextBlock}" x:Key="SpinningText" BasedOn="{StaticResource BaseTextBlockStyle}">
 
-        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <!--<Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
         <Setter Property="Text" Value="&#xf110;" />
         <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
         <Setter Property="RenderTransform">
@@ -169,7 +169,7 @@
                     <RemoveStoryboard BeginStoryboardName="SpinStoryboard" />
                 </DataTrigger.ExitActions>
             </DataTrigger>
-        </Style.Triggers>
+        </Style.Triggers>-->
 
     </Style>
 </ResourceDictionary>
