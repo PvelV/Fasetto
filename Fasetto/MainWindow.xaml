@@ -1,13 +1,11 @@
-﻿<Window x:Class="Fasetto.MainWindow"
+﻿<Window x:Class="Fasetto.Word.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Fasetto"
-        xmlns:vm="clr-namespace:Fasetto.ViewModels"
-        xmlns:convertors="clr-namespace:Fasetto.ValueConverters"
+        xmlns:local="clr-namespace:Fasetto.Word"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance Type=vm:WindowViewModel, IsDesignTimeCreatable=True}" 
+        d:DataContext="{d:DesignInstance Type=local:WindowViewModel, IsDesignTimeCreatable=True}" 
         x:Name="AppWindows"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -128,7 +126,7 @@
                 <ImageBrush ImageSource="/Fasetto;component/Images/Backgrounds/emoji-background.png" 
                             TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" />
             </Grid.Background>
-            <Frame x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={convertors:ApplicationPageValueConvertor}}" />
+            <Frame x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConvertor}}" />
         </Grid>
     </Border>
 </Window>

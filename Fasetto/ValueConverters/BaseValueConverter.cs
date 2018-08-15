@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Fasetto.ValueConverters
+namespace Fasetto.Word
 {
     /// <summary>
-    /// A basic value convertor that allows direct XAML use
+    /// A basic value local that allows direct XAML use
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class BaseValueConverter<T> : MarkupExtension, IValueConverter where T: class, new()

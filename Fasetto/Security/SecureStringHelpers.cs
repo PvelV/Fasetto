@@ -6,7 +6,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fasetto.Security
+namespace Fasetto.Word
 {
     public static class SecureStringHelpers
     {

@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
-namespace Fasetto.Animations
+namespace Fasetto.Word
 {
     public static class PageAnimations
     {

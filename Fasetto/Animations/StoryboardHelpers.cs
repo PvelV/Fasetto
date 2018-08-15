@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace Fasetto.Animations
+namespace Fasetto.Word
 {
     public static class StoryboardHelpers
     {

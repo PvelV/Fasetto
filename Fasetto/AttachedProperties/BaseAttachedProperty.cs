@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Fasetto.AttachedProperties
+namespace Fasetto.Word
 {
     public abstract class BaseAttachedProperty<Parent, Property>  where Parent : new()
     {

@@ -1,5 +1,4 @@
-﻿using Fasetto.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -15,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Fasetto.Pages
+namespace Fasetto.Word
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fasetto.Models
+namespace Fasetto.Word
 {
     public enum ApplicationPage
     {

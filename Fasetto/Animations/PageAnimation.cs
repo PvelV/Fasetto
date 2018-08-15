@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fasetto.Animations
+namespace Fasetto.Word
 {
     public enum PageAnimation { None, SlideAndFadeInFromRight, SlideAndFadeOutToLeft }
 }
