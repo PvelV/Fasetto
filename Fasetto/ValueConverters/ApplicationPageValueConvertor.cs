@@ -14,8 +14,11 @@ namespace Fasetto.Word
         {
             switch ((ApplicationPage)value)
             {
-                case ApplicationPage.Login:
+                case ApplicationPage.LoginPage:
                     return new LoginPage();
+
+                case ApplicationPage.ChatPage:
+                    return new ChatPage();
 
                 default:
                     Debugger.Break();

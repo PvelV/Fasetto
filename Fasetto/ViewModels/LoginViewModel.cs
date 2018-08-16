@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Fasetto.Word
 {
-    public class LoginViewModel : ViewModel
+    public class LoginPageViewModel : ViewModel
     {
 
         public string Email { get; set; }
@@ -18,7 +18,7 @@ namespace Fasetto.Word
         public bool LoginIsRunning { get; set; }
 
 
-        public LoginViewModel()
+        public LoginPageViewModel()
         {
             LoginCommand = new Command(async (param) => await Login(param));
         }

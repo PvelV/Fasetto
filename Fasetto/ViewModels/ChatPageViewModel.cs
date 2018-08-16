@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fasetto.Word
 {
-    public enum ApplicationPage
+    public class ChatPageViewModel : ViewModel
     {
-        LoginPage, ChatPage
     }
 }
