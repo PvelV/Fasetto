@@ -24,8 +24,8 @@ namespace Fasetto.Word
 
         public ApplicationPage CurrentPage { get; set; } = ApplicationPage.ChatPage;
 
-        public double WindowMinWidth { get; set; } = 400;
-        public double WindowMinHeight { get; set; } = 400;
+        public double WindowMinWidth { get; set; } = 800;
+        public double WindowMinHeight { get; set; } = 500;
         public int ResizeBorder { get; set; } = 6;
 
 

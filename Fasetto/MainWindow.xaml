@@ -122,11 +122,19 @@
     </WindowChrome.WindowChrome>
     <Border Background="{StaticResource WordBlueBrush}">
         <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
             <Grid.Background>
                 <ImageBrush ImageSource="/Fasetto;component/Images/Backgrounds/emoji-background.png" 
                             TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" />
             </Grid.Background>
-            <Frame x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConvertor}}" />
+
+            <local:SideMenuControl Grid.Column="0"></local:SideMenuControl>
+
+            <Frame Grid.Column="1" x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConvertor}}" />
         </Grid>
     </Border>
 </Window>
