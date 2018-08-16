@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Fasetto.Word.ChatListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Fasetto.Word"
+             d:DataContext="{x:Static local:ChatListItemDesignModel.Instance}"
+             mc:Ignorable="d"  Height="60"
+             d:DesignHeight="60" d:DesignWidth="300">
+    <Grid Background="{StaticResource ForegroundLightBrush}" >
+        <Grid.ColumnDefinitions>
+            <!-- New message indicator-->
+            <ColumnDefinition Width="Auto"/>
+            <!-- profile picture-->
+            <ColumnDefinition Width="Auto"/>
+            <!-- main content-->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource WordRedBrush}" Width="5"/>
+
+        <!-- Profile picture -->
+        <Border Grid.Column="1" Margin="8" Background="{Binding ProfilePictureRGB, Converter={local:StringRGBToBrushConverter}}" 
+                Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" >
+            <!-- User initials-->
+            <TextBlock Text="{Binding Initials}" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="{StaticResource ForegroundLightBrush}"
+                       FontSize="{StaticResource FontSizeLarge}"
+                       FontFamily="{StaticResource LatoRegular}"/>
+        </Border>
+
+        <!-- Message -->
+        <Border Grid.Column="2" Padding="0 0 8 0">
+            <StackPanel VerticalAlignment="Center">
+                <!-- Name -->
+                <TextBlock Text="{Binding Name}"
+                           FontFamily="{StaticResource LatoRegular}"
+                           TextTrimming="CharacterEllipsis"
+                           Foreground="{StaticResource WordBlueBrush}"/>
+                <!-- Message -->
+                <TextBlock Text="{Binding Message}" 
+                       FontFamily="{StaticResource LatoRegular}"
+                       TextTrimming="CharacterEllipsis"
+                       Foreground="{StaticResource ForegroundDarkBrush}"/>
+            </StackPanel>
+
+        </Border>
+
+
+    </Grid>
+</UserControl>

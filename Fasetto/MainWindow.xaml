@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fasetto.Word"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance Type=local:WindowViewModel, IsDesignTimeCreatable=True}" 
         x:Name="AppWindows"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -128,13 +127,17 @@
             </Grid.ColumnDefinitions>
             
             <Grid.Background>
-                <ImageBrush ImageSource="/Fasetto;component/Images/Backgrounds/emoji-background.png" 
+                <ImageBrush ImageSource="Images/Backgrounds/emoji-background.png" 
                             TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" />
             </Grid.Background>
 
-            <local:SideMenuControl Grid.Column="0"></local:SideMenuControl>
+            <local:SideMenuControl Grid.Column="0">
+                <local:ChatListControl VerticalAlignment="Top" >
+                </local:ChatListControl>
+            </local:SideMenuControl>
 
             <Frame Grid.Column="1" x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConvertor}}" />
+
         </Grid>
     </Border>
 </Window>

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3B4C0831-D61B-4E04-9054-80BF76A1CC41}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Fasetto</RootNamespace>
-    <AssemblyName>Fasetto</AssemblyName>
+    <RootNamespace>Fasetto.Word</RootNamespace>
+    <AssemblyName>Fasetto.Word</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -70,8 +70,16 @@
     <Compile Include="Animations\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
+    <Compile Include="ValueConverters\StringRGBToBrushConverter.cs" />
+    <Compile Include="ViewModels\Chat\ChatListItemViewModel.cs" />
+    <Compile Include="Controls\Chat\ChatListControl.xaml.cs">
+      <DependentUpon>ChatListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Chat\ChatListItemControl.xaml.cs">
+      <DependentUpon>ChatListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\ExpressionHelpers.cs" />
-    <Compile Include="Controls\SideMenuControl.xaml.cs">
+    <Compile Include="Controls\Chat\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicationPage.cs" />
@@ -87,12 +95,23 @@
     <Compile Include="ValueConverters\ApplicationPageValueConvertor.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="ViewModels\ChatPageViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatListViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatPageViewModel.cs" />
+    <Compile Include="ViewModels\Chat\Design\ChatListItemDesignModel.cs" />
+    <Compile Include="ViewModels\Chat\Design\ChatListDesignModel.cs" />
     <Compile Include="ViewModels\IHavePassword.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
     <Compile Include="Resizer\WindowResizer.cs" />
-    <Page Include="Controls\SideMenuControl.xaml">
+    <Page Include="Controls\Chat\ChatListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Chat\ChatListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Chat\SideMenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

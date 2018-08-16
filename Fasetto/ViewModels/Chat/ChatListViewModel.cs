@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Fasetto.Word
 {
-    public interface IHavePassword
+    public class ChatListViewModel : ViewModel
     {
-        SecureString SecurePassword { get; }
+        public List<ChatListItemViewModel> Items { get; set; }
+
+
     }
 }
