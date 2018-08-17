@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:Fasetto.Word"
              mc:Ignorable="d" 
              d:DataContext="{x:Static local:ChatListDesignModel.Instance}"
-             d:DesignHeight="300" d:DesignWidth="300">
+             
+             d:DesignHeight="300" d:DesignWidth="300"
+            DataContext="{x:Static local:ChatListDesignModel.Instance}">
     
     <Grid Background="{StaticResource ForegroundLightBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">

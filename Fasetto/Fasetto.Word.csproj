@@ -101,7 +101,8 @@
     <Compile Include="ViewModels\Chat\Design\ChatListDesignModel.cs" />
     <Compile Include="ViewModels\IHavePassword.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\WindowViewModel.cs" />
+    <Compile Include="ViewModels\Main\WindowDesignModel.cs" />
+    <Compile Include="ViewModels\Main\WindowViewModel.cs" />
     <Compile Include="Resizer\WindowResizer.cs" />
     <Page Include="Controls\Chat\ChatListControl.xaml">
       <SubType>Designer</SubType>

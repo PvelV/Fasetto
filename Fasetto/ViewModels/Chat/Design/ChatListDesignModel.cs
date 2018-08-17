@@ -14,7 +14,20 @@ namespace Fasetto.Word
 
         public ChatListDesignModel()
         {
-            Items = new List<ChatListItemViewModel> { new ChatListItemDesignModel(), new ChatListItemDesignModel(), new ChatListItemDesignModel() };
+            Items = new List<ChatListItemViewModel> {
+                new ChatListItemDesignModel{IsSelected=true },
+                new ChatListItemDesignModel{NewContentAvailable=true },
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+                new ChatListItemDesignModel(),
+            };
         }
 
     }

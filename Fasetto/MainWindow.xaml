@@ -131,8 +131,9 @@
                             TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" />
             </Grid.Background>
 
-            <local:SideMenuControl Grid.Column="0">
-                <local:ChatListControl VerticalAlignment="Top" >
+            
+            <local:SideMenuControl Grid.Column="0"  >
+                <local:ChatListControl VerticalAlignment="Top" d:DataContext="{x:Static local:ChatListDesignModel.Instance}" >
                 </local:ChatListControl>
             </local:SideMenuControl>
 
