@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Fasetto.Word"
         xmlns:core="clr-namespace:Fasetto.Word.Core;assembly=Fasetto.Word.Core"
         mc:Ignorable="d"
-        x:Name="AppWindows"
+        x:Name="AppWindow"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -138,7 +138,7 @@
                 </local:ChatListControl>
             </local:SideMenuControl>
 
-            <Frame Grid.Column="1" x:Name="MainFrame"  Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConvertor}}" />
+            <Frame Grid.Column="1" x:Name="MainFrame"  Content="{Binding ElementName=AppWindow, Path=ApplicationViewModel.CurrentPage, Converter={local:ApplicationPageValueConvertor}}" />
 
         </Grid>
     </Border>
