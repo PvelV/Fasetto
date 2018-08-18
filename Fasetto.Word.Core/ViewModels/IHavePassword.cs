@@ -5,7 +5,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fasetto.Word
+namespace Fasetto.Word.Core
 {
     public interface IHavePassword
     {

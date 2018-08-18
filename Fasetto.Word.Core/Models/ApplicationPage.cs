@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fasetto.Word
+namespace Fasetto.Word.Core
 {
-    public class ChatPageViewModel : ViewModel
+    public enum ApplicationPage
     {
+        LoginPage, ChatPage
     }
 }

@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fasetto.Word
+namespace Fasetto.Word.Core
 {
-    public class ChatListViewModel : ViewModel
+    public class ChatPageViewModel : ViewModel
     {
-        public List<ChatListItemViewModel> Items { get; set; }
-
-
     }
 }
