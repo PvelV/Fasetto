@@ -8,6 +8,6 @@ namespace Fasetto.Word.Core
 {
     public enum ApplicationPage
     {
-        LoginPage, ChatPage
+        LoginPage, ChatPage, RegisterPage
     }
 }

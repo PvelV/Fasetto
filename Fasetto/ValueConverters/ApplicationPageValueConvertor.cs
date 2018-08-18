@@ -18,8 +18,12 @@ namespace Fasetto.Word
                 case ApplicationPage.LoginPage:
                     return new LoginPage();
 
+                case ApplicationPage.RegisterPage:
+                    return new RegisterPage();
+
                 case ApplicationPage.ChatPage:
                     return new ChatPage();
+
 
                 default:
                     Debugger.Break();

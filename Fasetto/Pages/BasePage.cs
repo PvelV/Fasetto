@@ -14,6 +14,7 @@ namespace Fasetto.Word
     {
         private VM mViewModel;
 
+        public bool ShouldAnimateOut { get; set; }
 
         public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRight;
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
@@ -47,10 +48,16 @@ namespace Fasetto.Word
 
         private async void BasePage_LoadedAsync(object sender, RoutedEventArgs e)
         {
-            await AnimateIn();
+            if (ShouldAnimateOut)
+                // Animate out the page
+                await AnimateOutAsync();
+            // Otherwise...
+            else
+                // Animate the page in
+                await AnimateInAsync();
         }
 
-        private async Task AnimateIn()
+        private async Task AnimateInAsync()
         {
             if (PageLoadAnimation == PageAnimation.None)
                 return;
@@ -70,7 +77,7 @@ namespace Fasetto.Word
             }
         }
 
-        private async Task AnimateOut()
+        private async Task AnimateOutAsync()
         {
             if (PageUnloadAnimation == PageAnimation.None)
                 return;
