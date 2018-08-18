@@ -22,7 +22,6 @@ namespace Fasetto.Word
     public partial class MainWindow : Window
     {
 
-        public ApplicationViewModel ApplicationViewModel => new ApplicationViewModel();
 
         public MainWindow()
         {

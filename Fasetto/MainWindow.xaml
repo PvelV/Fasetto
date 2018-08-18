@@ -138,7 +138,8 @@
                 </local:ChatListControl>
             </local:SideMenuControl>
 
-            <Frame Grid.Column="1" x:Name="MainFrame"  Content="{Binding ElementName=AppWindow, Path=ApplicationViewModel.CurrentPage, Converter={local:ApplicationPageValueConvertor}}" />
+            <Frame Grid.Column="1" x:Name="MainFrame"  
+                   Content="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConvertor}}" />
 
         </Grid>
     </Border>
