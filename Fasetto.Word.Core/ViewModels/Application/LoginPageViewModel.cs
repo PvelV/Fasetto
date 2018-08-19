@@ -29,8 +29,10 @@ namespace Fasetto.Word.Core
         {
             await RunCommandAsync(() => LoginIsRunning, async () =>
             {
-                await Task.Delay(5000);
-                var pass = (param as IHavePassword).SecurePassword.Unsecure();
+                await Task.Delay(1000);
+                //   var pass = (param as IHavePassword).SecurePassword.Unsecure();
+
+                Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.ChatPage);
             });
         }
 

@@ -23,7 +23,7 @@
                     <ControlTemplate TargetType="Window">
 
                         <!--Outer border with dropshadow-->
-                        <Border Margin="{Binding OuterMarginSizeThickness, FallbackValue=10}" ClipToBounds="True">
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}" ClipToBounds="True">
 
                             <!--MainWindow outline-->
                             <Grid>
@@ -123,7 +123,7 @@
     <Border Background="{StaticResource WordBlueBrush}">
         <Grid >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
@@ -133,7 +133,8 @@
             </Grid.Background>
 
 
-            <local:SideMenuControl Grid.Column="0" local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.IsSideMenuVisible, 
+            <local:SideMenuControl Grid.Column="0" Width="300"
+                                   local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.IsSideMenuVisible, 
                                                                                                         Source={x:Static local:ViewModelLocator.Instance}}" >
 
                 <local:ChatListControl VerticalAlignment="Top" d:DataContext="{x:Static core:ChatListDesignModel.Instance}" />

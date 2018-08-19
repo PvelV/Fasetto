@@ -12,5 +12,9 @@ namespace Fasetto.Word.Core
 
         public bool IsSideMenuVisible { get; set; } = false;
 
+        internal void GoToPage(ApplicationPage chatPage)
+        {
+            CurrentPage = chatPage;
+        }
     }
 }

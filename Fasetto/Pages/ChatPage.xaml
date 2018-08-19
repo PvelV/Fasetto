@@ -11,6 +11,8 @@
       d:DataContext="{d:DesignInstance Type=core:ChatPageViewModel, IsDesignTimeCreatable=True}" 
       Title="ChatPage">
 
-    
+    <Border>
+        <local:ChatMessageListControl/>
+    </Border>
     
 </local:BasePage>
