@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// Interaction logic for ChatListItemControl.xaml
+    /// Interaction logic for ChatItemControl.xaml
     /// </summary>
-    public partial class MessageListItemControl : UserControl
+    public partial class ChatItemControl : UserControl
     {
-        public MessageListItemControl()
+        public ChatItemControl()
         {
             InitializeComponent();
         }

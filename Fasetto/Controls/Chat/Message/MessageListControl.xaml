@@ -16,7 +16,7 @@
             <ItemsControl ItemsSource="{Binding Items}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ChatListItemControl/>
+                        <local:MessageItemControl/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
