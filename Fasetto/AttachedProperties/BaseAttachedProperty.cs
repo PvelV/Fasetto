@@ -14,12 +14,12 @@ namespace Fasetto.Word
         /// <summary>
         /// Fired when the value changes
         /// </summary>
-        public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender, e) => { };
+        public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged;// = (sender, e) => { };
 
         /// <summary>
         /// Fired when the value changes, even when the value is the same
         /// </summary>
-        public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
+        public event Action<DependencyObject, object> ValueUpdated; // = (sender, value) => { };
 
         #endregion
 
@@ -58,7 +58,7 @@ namespace Fasetto.Word
             (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueChanged(d, e);
 
             // Call event listeners
-            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueChanged(d, e);
+            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueChanged?.Invoke(d, e);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Fasetto.Word
             (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueUpdated(d, value);
 
             // Call event listeners
-            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueUpdated(d, value);
+            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueUpdated?.Invoke(d, value);
 
             // Return the value
             return value;

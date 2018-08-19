@@ -10,5 +10,7 @@ namespace Fasetto.Word.Core
     {
         public ApplicationPage CurrentPage { get; set; } = ApplicationPage.LoginPage;
 
+        public bool IsSideMenuVisible { get; set; } = false;
+
     }
 }

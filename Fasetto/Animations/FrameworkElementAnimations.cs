@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using static Fasetto.Word.Core.CoreDI;
 
 namespace Fasetto.Word
 {
@@ -190,65 +189,65 @@ namespace Fasetto.Word
         /// <param name="element">The element to animate</param>
         /// <param name="seconds">The time the animation will take</param>
         /// <returns></returns>
-        public static void MarqueeAsync(this FrameworkElement element, float seconds = 3f)
-        {
-            // Create the storyboard
-            var sb = new Storyboard();
+        //public static void MarqueeAsync(this FrameworkElement element, float seconds = 3f)
+        //{
+        //    // Create the storyboard
+        //    var sb = new Storyboard();
 
-            // Run until element is unloaded
-            var unloaded = false;
+        //    // Run until element is unloaded
+        //    var unloaded = false;
 
-            // Monitor for element unloading
-            element.Unloaded += (s, e) => unloaded = true;
+        //    // Monitor for element unloading
+        //    element.Unloaded += (s, e) => unloaded = true;
 
-            // Run a loop off the caller thread
-            TaskManager.Run(async () =>
-            {
-                // While the element is still available, recheck the size
-                // after every loop in case the container was resized
-                while (element != null && !unloaded)
-                {
-                    // Create width variables
-                    var width = 0d;
-                    var innerWidth = 0d;
+        //    // Run a loop off the caller thread
+        //    TaskManager.Run(async () =>
+        //    {
+        //        // While the element is still available, recheck the size
+        //        // after every loop in case the container was resized
+        //        while (element != null && !unloaded)
+        //        {
+        //            // Create width variables
+        //            var width = 0d;
+        //            var innerWidth = 0d;
 
-                    try
-                    {
-                        // Check if element is still loaded
-                        if (element == null || unloaded)
-                            break;
+        //            try
+        //            {
+        //                // Check if element is still loaded
+        //                if (element == null || unloaded)
+        //                    break;
 
-                        // Try and get current width
-                        width = element.ActualWidth;
-                        innerWidth = ((element as Border).Child as FrameworkElement).ActualWidth;
-                    }
-                    catch
-                    {
-                        // Any issues then stop animating (presume element destroyed)
-                        break;
-                    }
+        //                // Try and get current width
+        //                width = element.ActualWidth;
+        //                innerWidth = ((element as Border).Child as FrameworkElement).ActualWidth;
+        //            }
+        //            catch
+        //            {
+        //                // Any issues then stop animating (presume element destroyed)
+        //                break;
+        //            }
 
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        // Add marquee animation
-                        sb.AddMarquee(seconds, width, innerWidth);
+        //            Application.Current.Dispatcher.Invoke(() =>
+        //            {
+        //                // Add marquee animation
+        //                sb.AddMarquee(seconds, width, innerWidth);
 
-                        // Start animating
-                        sb.Begin(element);
+        //                // Start animating
+        //                sb.Begin(element);
 
-                        // Make page visible
-                        element.Visibility = Visibility.Visible;
-                    });
+        //                // Make page visible
+        //                element.Visibility = Visibility.Visible;
+        //            });
 
-                    // Wait for it to finish animating
-                    await Task.Delay((int)seconds * 1000);
+        //            // Wait for it to finish animating
+        //            await Task.Delay((int)seconds * 1000);
 
-                    // If this is from first load or zero seconds of animation, do not repeat
-                    if (seconds == 0)
-                        break;
-                }
-            });
-        }
+        //            // If this is from first load or zero seconds of animation, do not repeat
+        //            if (seconds == 0)
+        //                break;
+        //        }
+        //    });
+        //}
 
         #endregion
     }

@@ -23,7 +23,7 @@
                     <ControlTemplate TargetType="Window">
 
                         <!--Outer border with dropshadow-->
-                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}" >
+                        <Border Margin="{Binding OuterMarginSizeThickness, FallbackValue=10}" ClipToBounds="True">
 
                             <!--MainWindow outline-->
                             <Grid>
@@ -132,14 +132,18 @@
                             TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" />
             </Grid.Background>
 
-            
-            <local:SideMenuControl Grid.Column="0"  >
-                <local:ChatListControl VerticalAlignment="Top" d:DataContext="{x:Static core:ChatListDesignModel.Instance}" >
+
+            <local:SideMenuControl Grid.Column="0" local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.IsSideMenuVisible, 
+                                     Source={x:Static local:ViewModelLocator.Instance}}" >
+                
+            <local:ChatListControl VerticalAlignment="Top" d:DataContext="{x:Static core:ChatListDesignModel.Instance}" >
                 </local:ChatListControl>
             </local:SideMenuControl>
 
-            <Frame Grid.Column="1" x:Name="MainFrame"  
-                   Content="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConvertor}}" />
+            <Frame Grid.Column="1" x:Name="MainFrame" 
+                   Content="{Binding ApplicationViewModel.CurrentPage, 
+                                     Source={x:Static local:ViewModelLocator.Instance}, 
+                                     Converter={local:ApplicationPageValueConvertor}}" />
 
         </Grid>
     </Border>

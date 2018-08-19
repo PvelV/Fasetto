@@ -36,9 +36,9 @@ namespace Fasetto.Word.Core
 
         public async Task RegisterAsync()
         {
-            // Go to register page?
-           // ViewModelApplication.GoToPage(ApplicationPage.Register);
+            Container.Get<ApplicationViewModel>().IsSideMenuVisible ^= true;
 
+            Container.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.RegisterPage;
             await Task.Delay(1);
         }
     }

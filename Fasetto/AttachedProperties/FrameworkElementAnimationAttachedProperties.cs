@@ -253,7 +253,7 @@ namespace Fasetto.Word
         protected override void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
         {
             // Animate in
-            element.MarqueeAsync(firstLoad ? 0 : 3f);
+//            element.MarqueeAsync(firstLoad ? 0 : 3f);
         }
     }
 }

@@ -89,11 +89,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Animations\AnimationSlideInDirection.cs" />
+    <Compile Include="Animations\FrameworkElementAnimations.cs" />
     <Compile Include="Animations\PageAnimation.cs" />
     <Compile Include="Animations\PageAnimations.cs" />
     <Compile Include="Animations\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedProperties.cs" />
     <Compile Include="Main\ViewModelLocator.cs" />
     <Compile Include="Main\WindowDesignModel.cs" />
     <Compile Include="Main\WindowViewModel.cs" />
