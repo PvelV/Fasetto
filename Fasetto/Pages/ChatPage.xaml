@@ -12,7 +12,7 @@
       Title="ChatPage">
 
     <Border>
-        <local:ChatMessageListControl/>
+        <local:MessageListControl/>
     </Border>
     
 </local:BasePage>
