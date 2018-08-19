@@ -134,16 +134,18 @@
 
 
             <local:SideMenuControl Grid.Column="0" local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.IsSideMenuVisible, 
-                                     Source={x:Static local:ViewModelLocator.Instance}}" >
-                
-            <local:ChatListControl VerticalAlignment="Top" d:DataContext="{x:Static core:ChatListDesignModel.Instance}" >
-                </local:ChatListControl>
+                                                                                                        Source={x:Static local:ViewModelLocator.Instance}}" >
+
+                <local:ChatListControl VerticalAlignment="Top" d:DataContext="{x:Static core:ChatListDesignModel.Instance}" />
+
             </local:SideMenuControl>
 
-            <Frame Grid.Column="1" x:Name="MainFrame" 
-                   Content="{Binding ApplicationViewModel.CurrentPage, 
+            <local:PageHost Grid.Column="1"
+                   d:DataContext=""
+                   DataContext="{Binding ApplicationViewModel.CurrentPage, 
                                      Source={x:Static local:ViewModelLocator.Instance}, 
-                                     Converter={local:ApplicationPageValueConvertor}}" />
+                                     Converter={local:ApplicationPageValueConvertor}}" 
+                   CurrentPage="{Binding}"/>
 
         </Grid>
     </Border>
