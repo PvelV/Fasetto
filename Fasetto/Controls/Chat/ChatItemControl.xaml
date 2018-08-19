@@ -94,7 +94,7 @@
         </Style>
     </UserControl.Resources>
 
-    <ContentControl d:DataContext="{x:Static core:ChatListItemDesignModel.Instance}" Style="{StaticResource ContentStyle}"/>
+    <ContentControl d:DataContext="{x:Static core:ChatItemDesignModel.Instance}" Style="{StaticResource ContentStyle}"/>
 
 
 </UserControl>

@@ -6,13 +6,12 @@
              xmlns:local="clr-namespace:Fasetto.Word"
              xmlns:core="clr-namespace:Fasetto.Word.Core;assembly=Fasetto.Word.Core"
              mc:Ignorable="d" 
-             d:DataContext="{x:Static core:ChatListDesignModel.Instance}"
-             
              d:DesignHeight="300" d:DesignWidth="300"
-            DataContext="{x:Static core:ChatListDesignModel.Instance}">
-    
+             DataContext="{x:Static core:MessageListDesignModel.Instance}">
+
     <Grid Background="{StaticResource WordRedBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
+
             <ItemsControl ItemsSource="{Binding Items}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -20,8 +19,8 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-            
-        </ScrollViewer>        
+
+        </ScrollViewer>
     </Grid>
-    
+
 </UserControl>

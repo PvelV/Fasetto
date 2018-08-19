@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fasetto.Word.Core
 {
-    public class ChatListItemViewModel : ViewModel
+    public class ChatItemViewModel : ViewModel
     {
         public string Name { get; set; }
         public string Message { get; set; }

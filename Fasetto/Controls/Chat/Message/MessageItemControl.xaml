@@ -8,93 +8,164 @@
              mc:Ignorable="d"  Height="60"
              d:DesignHeight="60" d:DesignWidth="300">
 
-    <UserControl.Resources>
-        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ContentControl}">
+    <Border Padding="5" 
+            d:DataContext="{x:Static local:ChatMessageListItemDesignModel.Instance}"
+            >
+        <Grid>
 
-                        <Border x:Name="Background" Background="{StaticResource ForegroundLightBrush}">
+            <!-- Profile picture -->
+            <Border VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="0 7.5 0 7.5"
+                    Visibility="{Binding SentByMe, Converter={local:BooleanToVisiblityConverter}}"
+                    CornerRadius="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
+                    Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
+                    Width="35"
+                    Background="Green"
+                    BorderBrush="{StaticResource ForegroundLightBrush}"
+                    BorderThickness="1"
+                    >
+                <TextBlock Text="{Binding Initials}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource ForegroundLightBrush}"
+                           FontFamily="{StaticResource LatoRegular}"
+                           />
+            </Border>
 
-                            <!-- Content -->
-                            <Grid x:Name="Container" Background="Transparent" >
-                                <Grid.ColumnDefinitions>
+            <!-- Chat message container -->
+            <Grid Margin="25 0 25 0"
+                  HorizontalAlignment="{Binding SentByMe, Converter={local:SentByMeToAlignmentConverter}}">
 
-                                    <!-- profile picture-->
-                                    <ColumnDefinition Width="Auto"/>
-                                    <!-- main content-->
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                <Grid.Triggers>
 
-                                <Border Grid.Column="0" Background="{StaticResource WordRedBrush}" 
-                                    Width="3" HorizontalAlignment="Left"
-                                    Visibility="{Binding NewContentAvailable, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=True}"/>
+                    <!-- Mouse over shows time -->
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetName="ExtraDetails" Storyboard.TargetProperty="Opacity">
+                                <DoubleAnimation To="1" Duration="00:00:00.5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
 
-                                <!-- Profile picture -->
-                                <Border Grid.Column="0" Margin="8" Background="{Binding ProfilePictureRGB, Converter={local:StringRGBToBrushConverter}}" 
-                                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                    CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" >
-                                    <!-- User initials-->
-                                    <TextBlock Text="{Binding Initials}" 
-                                           HorizontalAlignment="Center" VerticalAlignment="Center"
-                                           Foreground="{StaticResource ForegroundLightBrush}"
-                                           FontSize="{StaticResource FontSizeLarge}"
-                                           FontFamily="{StaticResource LatoRegular}"/>
-                                </Border>
+                    <!-- Mouse leave hides time -->
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetName="ExtraDetails" Storyboard.TargetProperty="Opacity">
+                                <DoubleAnimation To="0" Duration="00:00:00.5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
 
-                                <!-- Message -->
-                                <Border Grid.Column="1" Padding="0 0 8 0">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <!-- Name -->
-                                        <TextBlock Text="{Binding Name}"
-                                               FontFamily="{StaticResource LatoRegular}"
-                                               TextTrimming="CharacterEllipsis"
-                                               Foreground="{StaticResource WordBlueBrush}"/>
-                                        <!-- Message -->
-                                        <TextBlock Text="{Binding Message}" 
-                                               FontFamily="{StaticResource LatoRegular}"
-                                               TextTrimming="CharacterEllipsis"
-                                               Foreground="{StaticResource ForegroundDarkBrush}"/>
-                                    </StackPanel>
+                </Grid.Triggers>
 
-                                </Border>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
+                <!-- Message text/attachments grid -->
+                <Grid>
 
-                            </Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Image Loading Glyph -->
+                    <Border HorizontalAlignment="{Binding SentByMe, Converter={local:SentByMeToAlignmentConverter}}"
+                            VerticalAlignment="Top">
+
+                        <TextBlock Style="{StaticResource SpinningText}"
+                               Foreground="{StaticResource ForegroundLightBrush}"
+                               Padding="20"
+                               DataContext="{Binding ImageAttachment}"
+                               Visibility="{Binding ImageLoaded, Converter={local:BooleanToVisiblityGoneConverter}, ConverterParameter=True, FallbackValue=Collapsed}"
+                               />
+
+                    </Border>
+
+                    <!-- Image attachment -->
+                    <Border CornerRadius="10"
+                            Margin="0 0 0 15">
+
+                        <Image DataContext="{Binding ImageAttachment}"
+                               local:ClipFromBorderProperty.Value="True"
+                               local:FadeInImageOnLoadProperty.Value="True"
+                               Source="{Binding LocalFilePath, NotifyOnTargetUpdated=True}"
+                               MaxWidth="600"
+                               />
+
+                    </Border>
+
+                    <!-- Chat Message Text Bubble -->
+                    <Grid Grid.Row="1"
+                          HorizontalAlignment="{Binding SentByMe, Converter={local:SentByMeToAlignmentConverter}}"
+                          Visibility="{Binding HasMessage, Converter={local:BooleanToVisiblityGoneConverter}}">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Speech bubble rectangle -->
+                        <Border CornerRadius="10"
+                                Padding="15"
+                                Background="{Binding SentByMe, Converter={local:SentByMeToBackgroundConverter}}"
+                                >
+
+                            <!-- Message text -->
+                            <TextBlock VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       FontFamily="{StaticResource LatoRegular}"
+                                       Foreground="{StaticResource WordDarkBlueBrush}"
+                                       Text="{Binding Message}"
+                                       />
+
                         </Border>
 
-                        <!-- Hover Effect -->
-                            <ControlTemplate.Triggers>
-                                <DataTrigger Binding="{Binding IsSelected}" Value="True">
-                                    <Setter Property="Background" TargetName="Background" Value="{StaticResource WordVeryLightBlueBrush}"/>
-                                </DataTrigger>
-                                <EventTrigger RoutedEvent="MouseEnter">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation To="{StaticResource WordVeryLightBlue}" Duration="0:0:0.3" Storyboard.TargetName="Container" Storyboard.TargetProperty="Background.Color" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="MouseLeave">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation To="Transparent" Duration="0:0:0.3" Storyboard.TargetName="Container" Storyboard.TargetProperty="Background.Color" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <Trigger Property="IsEnabled" Value="False">
-                                    <Setter Property="Background" TargetName="Container" Value="{StaticResource ForegroundDarkBrush}"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
+                        <!-- Chat bubble anchor -->
+                        <Path Grid.Row="1" 
+                              Stroke="Black"
+                              Panel.ZIndex="1"
+                              Margin="15 -1 15 0"
+                              Data="M 0,0 L 10,10 L 20,0 L 0,0" 
+                              StrokeThickness="0"
+                              HorizontalAlignment="{Binding SentByMe, Converter={local:SentByMeToAlignmentConverter}}"
+                              Fill="{Binding SentByMe, Converter={local:SentByMeToBackgroundConverter}}" />
 
+                        <!-- Time containers -->
+                        <StackPanel Name="ExtraDetails" 
+                            Grid.Row="2"
+                            Opacity="0"
+                            HorizontalAlignment="{Binding SentByMe, Converter={local:SentByMeToAlignmentConverter}, ConverterParameter=True}"
+                            Orientation="Horizontal">
 
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
+                            <!-- Sent time -->
+                            <TextBlock Text="{Binding MessageSentTime, Converter={local:TimeToDisplayTimeConverter}}"
+                               Foreground="{StaticResource ForegroundLightBrush}"
+                               FontSize="{StaticResource FontSizeSmall}"
+                               FontFamily="{StaticResource LatoRegular}"
+                               Margin="0 0 15 0"
+                           />
 
-    <ContentControl d:DataContext="{x:Static core:ChatListItemDesignModel.Instance}" Style="{StaticResource ContentStyle}"/>
+                            <!-- Read time -->
+                            <TextBlock Text="{Binding MessageReadTime, Converter={local:TimeToReadTimeConverter}}"
+                               Foreground="{StaticResource WordDarkBlueBrush}"
+                               FontSize="{StaticResource FontSizeSmall}"
+                               FontFamily="{StaticResource LatoRegular}"
+                           />
 
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </Border>
 
 </UserControl>

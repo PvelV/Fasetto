@@ -22,27 +22,29 @@ namespace Fasetto.Word.Core
 
         public RegisterPageViewModel()
         {
-            LoginCommand = new Command(async (param) => await LoginAsync(param));
-            RegisterCommand = new Command(async () => await RegisterAsync());
+            LoginCommand = new Command(async () => await LoginAsync());
+            RegisterCommand = new Command(async (param) => await RegisterAsync(param));
         }
 
 
 
-        public async Task LoginAsync(object param)
+        public async Task LoginAsync()
         {
             await RunCommandAsync(() => LoginIsRunning, async () =>
             {
-                await Task.Delay(5000);
-                var pass = (param as IHavePassword).SecurePassword.Unsecure();
+                //   var pass = (param as IHavePassword).SecurePassword.Unsecure();
+                Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
+                Container.Get<ApplicationViewModel>().IsSideMenuVisible = false;
+
             });
         }
 
-        public async Task RegisterAsync()
+        public async Task RegisterAsync(object param)
         {
-            Container.Get<ApplicationViewModel>().IsSideMenuVisible ^= true;
+            await Task.Delay(1000);
+            Container.Get<ApplicationViewModel>().IsSideMenuVisible = true;
 
-            Container.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.RegisterPage;
-            await Task.Delay(1);
+            Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.ChatPage);
         }
     }
 }

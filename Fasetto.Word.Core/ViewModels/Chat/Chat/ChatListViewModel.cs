@@ -8,7 +8,7 @@ namespace Fasetto.Word.Core
 {
     public class ChatListViewModel : ViewModel
     {
-        public List<ChatListItemViewModel> Items { get; set; }
+        public List<ChatItemViewModel> Items { get; set; }
 
 
     }

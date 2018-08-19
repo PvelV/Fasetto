@@ -27,15 +27,14 @@
 
                             <PasswordBox x:Name="password" Tag="Password" Margin="0 0 0 30"/>
 
-                            <Button Content="Next"
-                                    local:IsBusyProperty.Value="{Binding LoginIsRunning}"
-                                    Command="{Binding LoginCommand}" 
-                                    CommandParameter="{Binding ElementName=Page}" 
+                            <Button Content="Register"
+                                    Command="{Binding RegisterCommand}" 
+                                    CommandParameter="{Binding ElementName=Page}"
                                     HorizontalAlignment="Center" />
                         </StackPanel>
                     </Border>
                     <Button Content="Or sign in with existing account" HorizontalAlignment="Center" Style="{StaticResource TextButton}"
-                            Command="{Binding RegisterCommand}"/>
+                            Command="{Binding LoginCommand}"/>
                 </StackPanel>
             </ScrollViewer>
 

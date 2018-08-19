@@ -5,11 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Fasetto.Word"
              xmlns:core="clr-namespace:Fasetto.Word.Core;assembly=Fasetto.Word.Core"
-             mc:Ignorable="d" 
-             d:DataContext="{x:Static core:ChatListDesignModel.Instance}"
-             
+             mc:Ignorable="d"             
              d:DesignHeight="300" d:DesignWidth="300"
-            DataContext="{x:Static core:ChatListDesignModel.Instance}">
+             DataContext="{x:Static core:ChatListDesignModel.Instance}">
     
     <Grid Background="{StaticResource ForegroundLightBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">

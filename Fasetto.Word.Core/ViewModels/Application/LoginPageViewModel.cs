@@ -30,6 +30,9 @@ namespace Fasetto.Word.Core
             await RunCommandAsync(() => LoginIsRunning, async () =>
             {
                 await Task.Delay(1000);
+
+                Container.Get<ApplicationViewModel>().IsSideMenuVisible = true;
+
                 //   var pass = (param as IHavePassword).SecurePassword.Unsecure();
 
                 Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.ChatPage);
@@ -38,10 +41,9 @@ namespace Fasetto.Word.Core
 
         public async Task RegisterAsync()
         {
-            Container.Get<ApplicationViewModel>().IsSideMenuVisible ^= true;
+            Container.Get<ApplicationViewModel>().IsSideMenuVisible = false;
 
-            Container.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.RegisterPage;
-            await Task.Delay(1);
+            Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.RegisterPage);
         }
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Fasetto.Word.Core
 {
-    public class ChatListItemDesignModel : ChatListItemViewModel
+    public class ChatItemDesignModel : ChatItemViewModel
     {
 
-        public static ChatListItemDesignModel Instance => new ChatListItemDesignModel();
+        public static ChatItemDesignModel Instance => new ChatItemDesignModel();
 
 
-        public ChatListItemDesignModel()
+        public ChatItemDesignModel()
         {
             Name = "Test Name";
             Message = "Test Message";
