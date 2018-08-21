@@ -6,12 +6,210 @@
       xmlns:local="clr-namespace:Fasetto.Word"
       xmlns:core="clr-namespace:Fasetto.Word.Core;assembly=Fasetto.Word.Core"
       x:Name="Page"
-      mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="800"
-      Title="ChatPage">
+      mc:Ignorable="d"
+      d:DataContext="{x:Static core:MessageListDesignModel.Instance}"
+                      DataContext="{x:Static core:MessageListDesignModel.Instance}"
+      d:DesignHeight="700" d:DesignWidth="800">
 
-    <Border>
-        <local:MessageListControl/>
-    </Border>
-    
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <!-- Title bar -->
+            <RowDefinition Height="Auto" />
+
+            <!-- Chat List -->
+            <RowDefinition Height="*" />
+
+            <!-- Message Send Text box -->
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+
+        <!-- Popup Overlay -->
+        <Border Background="Transparent" 
+                Grid.RowSpan="2"
+                Panel.ZIndex="1"
+                Visibility="{Binding AnyPopupVisible, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=True}"
+                >
+            <Border.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding PopupClickawayCommand}" />
+            </Border.InputBindings>
+        </Border>
+
+        <!-- Title bar -->
+        <Grid Height="50">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+
+
+            <!-- Example Marquee Title -->
+            <!--<Border ClipToBounds="True">
+                <Border local:AnimateMarqueeProperty.Value="True">
+                    <TextBlock Text="Parnell" 
+                       Foreground="{StaticResource ForegroundLightBrush}"
+                       FontSize="{StaticResource FontSizeXLarge}"
+                       FontFamily="{StaticResource LatoRegular}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       />
+                </Border>
+            </Border>-->
+
+            <!-- Title text -->
+            <TextBlock Text="{Binding DisplayTitle}" 
+                       Grid.ColumnSpan="2"
+                       Foreground="{StaticResource ForegroundLightBrush}"
+                       FontSize="{StaticResource FontSizeXLarge}"
+                       FontFamily="{StaticResource LatoRegular}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       />
+
+            <!-- Main buttons -->
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+
+                <!-- Search Button -->
+                <Button Style="{StaticResource IconGrowButton}" 
+                        Content="{StaticResource FontAwesomeSearchIcon}"
+                        Command="{Binding OpenSearchCommand}"
+                        />
+
+                <Button Style="{StaticResource IconGrowButton}" Content="{StaticResource FontAwesomeEllipsisVerticalIcon}" />
+            </StackPanel>
+
+            <!-- Search Overlay -->
+            <Grid Grid.ColumnSpan="2"
+                  local:AnimateSlideInFromRightMarginProperty.Value="{Binding SearchIsOpen}"
+                  >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Close search button -->
+                <Button Style="{StaticResource IconGrowButton}" 
+                        Content="{StaticResource FontAwesomeCloseIcon}"
+                        Command="{Binding CloseSearchCommand}"
+                        Foreground="{StaticResource WordOrangeBrush}"
+                        />
+
+                <!-- Search box -->
+                <TextBox 
+                    Grid.Column="1" 
+                    Tag="Search text..."
+                    local:FocusProperty.Value="{Binding SearchIsOpen}"
+                    Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                    Margin="0 5 5 5"
+                    FontSize="{StaticResource FontSizeRegular}"
+                    >
+                    <TextBox.InputBindings>
+                        <!-- Clear text on Esc -->
+                        <KeyBinding Command="{Binding ClearSearchCommand}" Key="Esc" />
+                        <!-- Search on enter -->
+                        <KeyBinding Command="{Binding SearchCommand}" Key="Return" />
+                    </TextBox.InputBindings>
+                </TextBox>
+
+
+            </Grid>
+
+        </Grid>
+
+        <!-- Chat List -->
+        <local:MessageListControl 
+            x:Name="ChatMessageList" 
+            Grid.Row="1" 
+            DataContext="{Binding}"
+            />
+
+        <!-- Attachment Menu Popup -->
+        <Border Grid.Row="1"
+                Panel.ZIndex="2"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                local:AnimateSlideInFromBottomProperty.Value="{Binding AttachmentMenuVisible}">
+
+            <!--<local:BubbleContent DataContext="{Binding AttachmentMenu}" />-->
+
+        </Border>
+
+        <!-- Message Send Text box -->
+        <Grid Grid.Row="2" 
+              Panel.ZIndex="3"
+              MinHeight="50"
+              MaxHeight="114"
+              Background="{StaticResource ForegroundLightBrush}"
+              >
+
+            <Grid.ColumnDefinitions>
+                <!-- Attach button -->
+                <ColumnDefinition Width="Auto" />
+
+                <!-- Text entry box -->
+                <ColumnDefinition Width="*" />
+
+                <!-- Additional buttons -->
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Attach button -->
+            <Button Style="{StaticResource IconGrowButton}"
+                    Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                    Content="{StaticResource FontAwesomePaperclipIcon}"
+                    VerticalAlignment="Top"
+                    Command="{Binding AttachmentButtonCommand}"
+                    Foreground="{StaticResource ForegroundDarkBrush}"
+                    />
+
+            <!-- Message box -->
+            <TextBox x:Name="MessageText"    
+                     Grid.Column="1" 
+                     Tag="Write a message..."
+                     local:IsFocusedProperty.Value="True"
+                     Text="{Binding PendingMessageText, UpdateSourceTrigger=PropertyChanged}"
+                     FontSize="{StaticResource FontSizeRegular}"
+                     VerticalAlignment="Center"
+                     BorderThickness="0"
+                     Padding="0 10 10 10"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     VerticalScrollBarVisibility="Auto"
+                     PreviewKeyDown="MessageText_PreviewKeyDown"
+                     />
+
+            <!-- Additional buttons -->
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Margin="0 0 8 0"
+                        >
+
+                <!-- Emoji button -->
+                <Button Style="{StaticResource IconGrowButton}"
+                    Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                    Content="{StaticResource FontAwesomeEmojiIcon}"
+                    Foreground="{StaticResource WordOrangeBrush}"
+                    />
+
+                <!-- Send button -->
+                <Button Content="Send"
+                        Padding="8"
+                        IsDefault="True"
+                        Focusable="False"
+                        Command="{Binding SendCommand}"
+                        Background="{StaticResource WordGreenBrush}"
+                        FontSize="{StaticResource FontSizeRegular}"
+                        />
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
 </local:BasePage>

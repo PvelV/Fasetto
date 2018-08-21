@@ -14,8 +14,8 @@ namespace Fasetto.Word.Core
         public MessageListDesignModel()
         {
             Items = new List<MessageItemViewModel>() {
-                new MessageItemDesignModel(),
-                new MessageItemDesignModel(),
+                new MessageItemDesignModel{ SentByMe = false},
+                new MessageItemDesignModel{MessageReadTime=DateTimeOffset.UtcNow.Subtract(TimeSpan.FromDays(1.2))},
                 new MessageItemDesignModel() };
         }
         

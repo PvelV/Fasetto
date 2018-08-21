@@ -8,8 +8,7 @@
       mc:Ignorable="d" 
       x:Name="Page"
       d:DesignHeight="700" d:DesignWidth="800"
-      d:DataContext="{d:DesignInstance Type=core:RegisterPageViewModel, IsDesignTimeCreatable=True}" 
-      Title="RegisterPage">
+      d:DataContext="{d:DesignInstance Type=core:RegisterPageViewModel, IsDesignTimeCreatable=True}" >
 
     <Border>
         <Grid>
@@ -23,11 +22,11 @@
                                    FontFamily="{StaticResource LatoRegular}" Foreground="{StaticResource WordBlueBrush}"
                                        Margin="0 0 0 20"/>
 
-                            <TextBox Text="{Binding Email}" Tag="Email"/>
+                            <TextBox Text="{Binding Email}" Tag="Email" local:IsFocusedProperty.Value="True"/>
 
                             <PasswordBox x:Name="password" Tag="Password" Margin="0 0 0 30"/>
 
-                            <Button Content="Register"
+                            <Button Content="Register" IsDefault="True"
                                     Command="{Binding RegisterCommand}" 
                                     CommandParameter="{Binding ElementName=Page}"
                                     HorizontalAlignment="Center" />

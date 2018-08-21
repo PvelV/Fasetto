@@ -19,6 +19,7 @@ namespace Fasetto.Word.Core
             Initials = "LM";
             ProfilePictureRGB = "0000FF";
             SentByMe = true;
+            MessageSentTime = DateTimeOffset.UtcNow;
         }
 
     }

@@ -26,5 +26,9 @@ namespace Fasetto.Word
         {
             InitializeComponent();
         }
+
+        private void MessageText_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+        }
     }
 }
