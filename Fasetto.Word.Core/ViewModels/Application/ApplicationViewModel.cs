@@ -8,7 +8,7 @@ namespace Fasetto.Word.Core
 {
     public class ApplicationViewModel : ViewModel
     {
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.ChatPage;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.LoginPage;
 
         public bool IsSideMenuVisible { get; set; } = true;
 

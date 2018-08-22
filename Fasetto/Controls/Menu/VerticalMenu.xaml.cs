@@ -1,8 +1,6 @@
-﻿using Fasetto.Word.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,22 +16,13 @@ using System.Windows.Shapes;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for VerticalMenu.xaml
     /// </summary>
-    public partial class ChatPage : BasePage<MessageListViewModel>
+    public partial class VerticalMenu : UserControl
     {
-        public ChatPage()
+        public VerticalMenu()
         {
             InitializeComponent();
-        }
-
-        private void MessageText_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

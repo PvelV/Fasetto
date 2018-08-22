@@ -21,7 +21,7 @@ namespace Fasetto.Word
             // Find the appropriate page
             switch (page)
             {
-                case ApplicationPage.Login:
+                case ApplicationPage.LoginPage:
                     return new LoginPage(viewModel as LoginViewModel);
 
                 case ApplicationPage.Register:
