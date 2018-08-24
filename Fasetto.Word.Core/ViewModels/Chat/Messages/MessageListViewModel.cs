@@ -221,6 +221,7 @@ namespace Fasetto.Word.Core
         /// </summary>
         public void Send()
         {
+
             // Don't send a blank message
             if (string.IsNullOrEmpty(PendingMessageText))
                 return;

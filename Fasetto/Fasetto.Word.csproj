@@ -102,6 +102,7 @@
     <Compile Include="AttachedProperties\PanelChildMarginProperty.cs" />
     <Compile Include="AttachedProperties\ScrollViewerAttachedProperties.cs" />
     <Compile Include="AttachedProperties\TextAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\TextEntryWidthMatcherProperty.cs" />
     <Compile Include="Controls\Chat\Message\BubbleContent.xaml.cs">
       <DependentUpon>BubbleContent.xaml</DependentUpon>
     </Compile>
@@ -111,11 +112,20 @@
     <Compile Include="Controls\Chat\Message\MessageListControl.xaml.cs">
       <DependentUpon>MessageListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Input\PasswordEntryControl.xaml.cs">
+      <DependentUpon>PasswordEntryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Input\TextEntryControl.xaml.cs">
+      <DependentUpon>TextEntryControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Menu\VerticalMenu.xaml.cs">
       <DependentUpon>VerticalMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\BaseDialogUserControl.cs" />
     <Compile Include="Dialogs\DialogMessageBox.xaml.cs">
@@ -189,11 +199,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Input\PasswordEntryControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Input\TextEntryControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\Menu\VerticalMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\PageHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
