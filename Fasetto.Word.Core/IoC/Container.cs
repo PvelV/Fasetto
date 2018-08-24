@@ -11,6 +11,7 @@ namespace Fasetto.Word.Core
     public static class Container
     {
         public static UnityContainer container { get; private set; }
+        public static IUIManager UI => Container.Get<IUIManager>();
 
         public static T Get<T>()
         {

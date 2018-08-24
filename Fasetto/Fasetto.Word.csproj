@@ -117,8 +117,16 @@
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\BaseDialogUserControl.cs" />
+    <Compile Include="Dialogs\DialogMessageBox.xaml.cs">
+      <DependentUpon>DialogMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\UIManager.cs" />
+    <Compile Include="DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main\ViewModelLocator.cs" />
-    <Compile Include="Main\WindowDesignModel.cs" />
+    <Compile Include="Main\DialogWindowViewModel.cs" />
     <Compile Include="Main\WindowViewModel.cs" />
     <Compile Include="Pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
@@ -188,6 +196,14 @@
     <Page Include="Controls\PageHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\ChatPage.xaml">
       <Generator>MSBuild:Compile</Generator>

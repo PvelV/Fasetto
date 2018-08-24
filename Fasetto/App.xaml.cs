@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Unity;
+using Unity.Lifetime;
 
 namespace Fasetto.Word
 {
@@ -19,6 +21,7 @@ namespace Fasetto.Word
             base.OnStartup(e);
 
             Container.Setup();
+            Container.container.RegisterType<IUIManager, UIManager>(new ContainerControlledLifetimeManager());
 
             Current.MainWindow = new MainWindow();
             Current.MainWindow.Show();

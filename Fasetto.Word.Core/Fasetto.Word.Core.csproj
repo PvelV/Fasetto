@@ -44,6 +44,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,6 +80,7 @@
     <Compile Include="Common\ViewModel.cs" />
     <Compile Include="Icons\IconTypeExtensions.cs" />
     <Compile Include="IoC\Container.cs" />
+    <Compile Include="IoC\Interfaces\IUIManager.cs" />
     <Compile Include="Models\ApplicationPage.cs" />
     <Compile Include="Models\ElementHorizontalAlignment.cs" />
     <Compile Include="Models\IconType.cs" />
@@ -102,6 +105,9 @@
     <Compile Include="ViewModels\Chat\Messages\MessageListViewModel.cs" />
     <Compile Include="ViewModels\Chat\Menu\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\Chat\Menu\MenuViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\BaseDialogViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\Design\MessageBoxDialogDesignModel.cs" />
+    <Compile Include="ViewModels\Dialogs\MessageBoxDialogViewModel.cs" />
     <Compile Include="ViewModels\IHavePassword.cs" />
     <Compile Include="ViewModels\Application\LoginPageViewModel.cs" />
   </ItemGroup>
