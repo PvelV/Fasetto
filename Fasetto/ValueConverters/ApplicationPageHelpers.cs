@@ -22,13 +22,13 @@ namespace Fasetto.Word
             switch (page)
             {
                 case ApplicationPage.LoginPage:
-                    return new LoginPage(viewModel as LoginViewModel);
+                    return new LoginPage(viewModel as LoginPageViewModel);
 
-                case ApplicationPage.Register:
-                    return new RegisterPage(viewModel as RegisterViewModel);
+                case ApplicationPage.RegisterPage:
+                    return new RegisterPage(viewModel as RegisterPageViewModel);
 
-                case ApplicationPage.Chat:
-                    return new ChatPage(viewModel as ChatMessageListViewModel);
+                case ApplicationPage.ChatPage:
+                    return new ChatPage(viewModel as MessageListViewModel);
 
                 default:
                     Debugger.Break();
@@ -45,13 +45,13 @@ namespace Fasetto.Word
         {
             // Find application page that matches the base page
             if (page is ChatPage)
-                return ApplicationPage.Chat;
+                return ApplicationPage.ChatPage;
 
             if (page is LoginPage)
-                return ApplicationPage.Login;
+                return ApplicationPage.LoginPage;
 
             if (page is RegisterPage)
-                return ApplicationPage.Register;
+                return ApplicationPage.RegisterPage;
 
             // Alert developer of issue
             Debugger.Break();

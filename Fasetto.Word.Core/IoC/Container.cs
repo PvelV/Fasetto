@@ -11,7 +11,10 @@ namespace Fasetto.Word.Core
     public static class Container
     {
         public static UnityContainer container { get; private set; }
-        public static IUIManager UI => Container.Get<IUIManager>();
+        public static IUIManager UI => Get<IUIManager>();
+
+        public static ApplicationViewModel Application => Get<ApplicationViewModel>();
+        public static SettingsViewModel Settings => Get<SettingsViewModel>();
 
         public static T Get<T>()
         {
@@ -28,6 +31,7 @@ namespace Fasetto.Word.Core
         {
             // singleton vms
             container.RegisterType<ApplicationViewModel>(new ContainerControlledLifetimeManager());
-        }
+            container.RegisterType<SettingsViewModel>(new ContainerControlledLifetimeManager());
+       }
     }
 }

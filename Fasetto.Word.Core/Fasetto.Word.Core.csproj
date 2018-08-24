@@ -87,8 +87,11 @@
     <Compile Include="Models\MenuItemType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecureStringHelpers.cs" />
+    <Compile Include="Task\BaseTaskManager.cs" />
     <Compile Include="ViewModels\Application\ApplicationViewModel.cs" />
+    <Compile Include="ViewModels\Application\Design\SettingsDesignModel.cs" />
     <Compile Include="ViewModels\Application\RegisterPageViewModel.cs" />
+    <Compile Include="ViewModels\Application\SettingsViewModel.cs" />
     <Compile Include="ViewModels\Chat\Menu\Design\MenuDesignModel.cs" />
     <Compile Include="ViewModels\Chat\Menu\Design\MenuItemDesignModel.cs" />
     <Compile Include="ViewModels\Chat\Messages\ChatMessageListItemImageAttachmentViewModel.cs" />
@@ -110,6 +113,10 @@
     <Compile Include="ViewModels\Dialogs\MessageBoxDialogViewModel.cs" />
     <Compile Include="ViewModels\IHavePassword.cs" />
     <Compile Include="ViewModels\Application\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\Input\Design\PasswordEntryDesignModel.cs" />
+    <Compile Include="ViewModels\Input\Design\TextEntryDesignModel.cs" />
+    <Compile Include="ViewModels\Input\PasswordEntryViewModel.cs" />
+    <Compile Include="ViewModels\Input\TextEntryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />

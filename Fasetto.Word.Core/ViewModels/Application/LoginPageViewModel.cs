@@ -31,7 +31,7 @@ namespace Fasetto.Word.Core
             {
                 await Task.Delay(1000);
 
-                Container.Get<ApplicationViewModel>().IsSideMenuVisible = true;
+                Container.Get<ApplicationViewModel>().SideMenuVisible = true;
 
                 //   var pass = (param as IHavePassword).SecurePassword.Unsecure();
 
@@ -41,7 +41,7 @@ namespace Fasetto.Word.Core
 
         public async Task RegisterAsync()
         {
-            Container.Get<ApplicationViewModel>().IsSideMenuVisible = false;
+            Container.Get<ApplicationViewModel>().SideMenuVisible = false;
 
             Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.RegisterPage);
         }

@@ -21,7 +21,7 @@ namespace Fasetto.Word
                 try
                 {
                     // Show the dialog box
-                 //   await new DialogMessageBox().ShowDialog(viewModel);
+                    await new DialogMessageBox().ShowDialog(viewModel);
                 }
                 finally
                 {

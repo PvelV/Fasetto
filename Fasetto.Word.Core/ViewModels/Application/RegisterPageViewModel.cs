@@ -34,7 +34,7 @@ namespace Fasetto.Word.Core
             {
                 //   var pass = (param as IHavePassword).SecurePassword.Unsecure();
                 Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
-                Container.Get<ApplicationViewModel>().IsSideMenuVisible = false;
+                Container.Get<ApplicationViewModel>().SideMenuVisible = false;
 
             });
         }
@@ -42,7 +42,7 @@ namespace Fasetto.Word.Core
         public async Task RegisterAsync(object param)
         {
             await Task.Delay(1000);
-            Container.Get<ApplicationViewModel>().IsSideMenuVisible = true;
+            Container.Get<ApplicationViewModel>().SideMenuVisible = true;
 
             Container.Get<ApplicationViewModel>().GoToPage(ApplicationPage.ChatPage);
         }
