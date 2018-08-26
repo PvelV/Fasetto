@@ -77,7 +77,6 @@
                        local:AnimateFadeInProperty.Value="{Binding Editing, Converter={local:BooleanInvertConverter}}"
                        Margin="15 8"
                        VerticalAlignment="Center"
-                       ToolTip="{Binding OriginalText}"
                        />
 
             <!-- Edit button container -->

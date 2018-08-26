@@ -99,7 +99,6 @@
     <Compile Include="ViewModels\Chat\Popup\ChatAttachmentPopupMenuViewModel.cs" />
     <Compile Include="ViewModels\Chat\Chat\ChatItemViewModel.cs" />
     <Compile Include="ViewModels\Chat\Chat\ChatListViewModel.cs" />
-    <Compile Include="ViewModels\Chat\ChatPageViewModel.cs" />
     <Compile Include="ViewModels\Chat\Chat\Design\ChatListDesignModel.cs" />
     <Compile Include="ViewModels\Chat\Chat\Design\ChatItemDesignModel.cs" />
     <Compile Include="ViewModels\Chat\Messages\MessageItemViewModel.cs" />

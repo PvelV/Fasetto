@@ -32,6 +32,8 @@ namespace Fasetto.Word.Core
             // singleton vms
             container.RegisterType<ApplicationViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<SettingsViewModel>(new ContainerControlledLifetimeManager());
-       }
+            container.RegisterType<RegisterPageViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<LoginPageViewModel>(new ContainerControlledLifetimeManager());
+        }
     }
 }

@@ -24,7 +24,7 @@
 
                             <TextBox Text="{Binding Email}" Tag="Email" local:IsFocusedProperty.Value="True"/>
 
-                            <PasswordBox x:Name="password" Tag="Password" Margin="0 0 0 30"/>
+                            <PasswordBox x:Name="PasswordText" Tag="Password" Margin="0 0 0 30"/>
 
                             <Button Content="Register" IsDefault="True"
                                     Command="{Binding RegisterCommand}" 
