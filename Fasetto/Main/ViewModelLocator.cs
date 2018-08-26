@@ -11,12 +11,7 @@ namespace Fasetto.Word
     {
         public static ViewModelLocator Instance { get; private set; } = new ViewModelLocator();
 
-        public static ApplicationViewModel ApplicationViewModel
-        { get
-            {
-                var a = Container.Application;
-                return a;
-            } }
+        public static ApplicationViewModel ApplicationViewModel => Container.Application;
         public static SettingsViewModel SettingsViewModel => Container.Settings;
 
     }
